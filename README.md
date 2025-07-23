@@ -38,6 +38,7 @@ Todos os requisitos da aplicação podem ser encontrados no arquivo `Requisitos.
 - Implementação de praticas de observabilidade com micrometer, prometheus e grafana
 - Utilização de RateLimit e cache para melhorar a performance da aplicação
 - Versionamento da API para futuras alterações mantendo assim a compatibilidade.
+- Portas de gerenciamento devem ser alteradas para evitar acessos externos, bem como paths da aplicação com este fim.
 
 ## Diagrama da aplicação
 ![img.png](img.png)
