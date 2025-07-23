@@ -1,0 +1,20 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person_Ext(consumer, "Cliente", "Consumidor final")
+
+System_Boundary(c1, "Internal") {
+  System(keycloack, "KeyCloack", "Keycloak", "Autenticação")
+  System(api_consumer, "Api consumer", "api_consumer")
+  ContainerDb(db, "Database", "Database", "", "")
+  System(loadbalancer, "loadbalancer", "loadbalancer")
+}
+
+Rel(consumer, "loadbalancer", "https")
+Rel(loadbalancer, keycloack, "https")
+Rel(keycloack, api_consumer, "https")
+Rel(api_consumer, db, "jdbc")
+
+LAYOUT_WITH_LEGEND()
+LAYOUT_LEFT_RIGHT()
+@enduml
